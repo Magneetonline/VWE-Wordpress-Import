@@ -1,0 +1,218 @@
+.magneet--vwe-features, .gallery{
+	list-style-type: none!important;
+	padding: 0px!important;
+	margin: 0px!important;
+}
+
+.magneet--vwe-archive a{
+	text-decoration: none!important;
+}
+
+.magneet--vwe-archive a:hover{
+	text-decoration: none!important;
+}
+
+.magneet--vwe-divider{
+	height: 3px;
+	background:RGBA(2, 47, 94, 1.00);
+	border:none;
+	margin: 3rem 0rem;
+}
+
+.magneet--vwe--archive__item{
+	display: inline-block;
+	width: calc(33.33333% - 3.4rem);
+	padding: 0px 1rem 2rem 1rem;
+	margin: 0px 0.5rem 1rem 0.5rem;
+	border: 1px solid #d1d1d1;
+	min-height: 450px;
+}
+
+.magneet--vwe--archive__item:hover{
+	background:RGBA(2, 47, 94, 0.05);
+}
+
+.magneet--vwe-features__label{
+	width: 120px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.magneet--vwe-features__value.type-verkoopprijs_particulier:before{
+	content: '€';
+}
+
+.magneet--vwe-features__value.type-topsnelheid:after{
+	content: ' km/u';
+}
+
+.magneet--vwe-features__value.type-massa:after{
+	content: ' kg';
+}
+
+.magneet--vwe-features__value.type-garantie_maanden:after{
+	content: ' maanden';
+}
+
+.magneet--vwe-features__value.type-tellerstand:after{
+	content: ' km';
+}
+
+
+
+.magneet--vwe-features__single .magneet--vwe-features__label{
+	width: 150px;
+}
+
+.magneet--vwe-features__single  li:nth-child(odd) {
+   background-color: RGBA(2, 47, 94, .1);
+}
+
+.magneet--vwe-features__single li{
+	padding: 0.5rem 0.5rem;
+}
+
+.magneet--vwe-features__single, .magneet--vwe-accessoire__single{
+	list-style-type: none!important;
+	padding: 0px!important;
+	margin: 0px!important;
+}
+
+.magneet--vwe-accessoire__item{
+	display: inline-block;
+	width: 46%;
+	margin-right: 4%;
+	border-bottom:1px solid RGBA(2, 47, 94, 0.05);
+}
+
+.magneet--vwe-features__single  li:nth-child(odd) {
+   margin-right: 0%!important;
+}
+
+.magneet--vwe-accessoire__item span{
+	color: green;
+}
+
+.gallery li{
+	display: inline-block;
+	padding: 1rem;
+	width: 18%;
+}
+.my-gallery{
+	background: #eaeaea;
+	padding: 1rem 0rem 1rem 1rem;
+	height:300px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 2rem
+}
+
+#filters ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+.my-gallery:after{
+	content: 'Meer afbeeldingen';
+	display: block;
+	z-index: 999;
+	position: absolute;
+	bottom: 0px;
+	background: white;
+		padding: 0.5rem 1rem;
+	border: 1px solid #9999;
+	left: 50%;
+	transform: translateX(-50%);
+	font-weight: bold;
+}
+
+.my-gallery.active:after{
+	content: 'Minder afbeeldingen';
+	display: none;
+}
+
+.my-gallery.active{
+	height: 100%;
+	overflow: visible;
+}
+
+.my-gallery figure{
+	width: 20%;
+	display: inline-block;
+	padding-right: 1rem;
+	box-sizing: border-box;
+}
+
+.my-gallery figure img{
+	width: 97%;
+}
+
+.column{
+	width: 150px;
+	display: inline-block;
+}
+
+.column:first-child{
+	margin-left: 3rem;
+}
+
+.column .button,{
+	display: block!important;
+}
+.main-filter{
+	background: white;
+}
+
+.main-filter .sub-filter{
+	overflow: visible;
+	position: absolute;
+	z-index: 99999999;
+	overflow: visible;
+	display: none;
+}
+
+.sub-filter li{
+	margin-bottom: 1rem;
+}
+
+.main-filter:hover .sub-filter{
+	display: block;
+}
+
+.sub-filter{
+	background: white;
+	padding: 1rem!important;
+	border:1px solid #eaeaea;
+	margin: 0px!important;
+}
+
+.main-filter h5{
+	margin-bottom: 0px;
+}
+
+.magneet--vwe--archive__item .prijs{
+	display: none;
+}
+
+#filters{
+	margin-bottom: 1rem;
+border-bottom: 1px solid #eaeaea;
+padding-bottom: 1rem
+}
+
+@media screen and (max-width: 700px) {
+    .magneet--vwe--archive__item{
+		display: block;
+		width: 360px;
+		margin: 2rem auto;
+	}
+	
+	.column{
+		width: 75px;
+	}
+	.gallery li{
+		display: inline-block;
+		padding: 0.2rem;
+		width: calc(33.333333% - 1rem);
+	}
+}
