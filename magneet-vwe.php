@@ -26,19 +26,6 @@ function magneet_vwe_styles_func() {
 }
 add_action( 'wp_enqueue_scripts', 'magneet_vwe_styles_func' );
 
-function get_attachment_meta_data_sem($attch_id) {
-	$meta_data = wp_get_attachment_metadata($attch_id);
-	if($meta_data == ''){
-		$attachment_path = get_attached_file($attch_id);
-		require_once( ABSPATH . 'wp-admin/includes/image.php' );
-		$attach_data = wp_generate_attachment_metadata( $attch_id, $attachment_path);
-		wp_update_attachment_metadata( $attach_id,  $attach_data );
-		return $attach_data;
-	}else{
-		return wp_get_attachment_metadata($attch_id);
-	}
-}
-
 function magneet_prijs($prijs){
 	if($prijs <= 1000){
 		echo 'A';

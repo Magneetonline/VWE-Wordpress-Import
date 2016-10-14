@@ -69,25 +69,27 @@
 	function Download_Images($xml){
 		$image_ids = array();
 		foreach($xml->afbeeldingen->afbeelding as $image){
-			$url = strtok($image->url, '?');
-			$upload_dir = wp_upload_dir();
-		    $image_data = file_get_contents($url);
-		    $filename = basename($url);
-		    if(wp_mkdir_p($upload_dir['path']))     $file = $upload_dir['path'] . '/' . $filename;
-		    else                                    $file = $upload_dir['basedir'] . '/' . $filename;
-		    file_put_contents($file, $image_data);
-		    $wp_filetype = wp_check_filetype($filename, null );
-		    $attachment = array(
-		        'post_mime_type' => $wp_filetype['type'],
-		        'post_title' => sanitize_file_name($filename),
-		        'post_content' => '',
-		        'post_status' => 'inherit'
-		    );
-		    $attach_id = wp_insert_attachment( $attachment, $file );
-		    require_once(ABSPATH . 'wp-admin/includes/image.php');
-		    $attach_data = wp_generate_attachment_metadata( $$attach_id, $file);
-			wp_update_attachment_metadata( $attach_id,  $attach_data );
-		    array_push($image_ids, $attach_id);
+			$file = strtok($image->url, '?');
+			$filename = basename($file);
+			$upload_file = wp_upload_bits($filename, null, file_get_contents($file));
+			if (!$upload_file['error']) {
+				$wp_filetype = wp_check_filetype($filename, null );
+				$attachment = array(
+					'post_mime_type' => $wp_filetype['type'],
+					'post_parent' => $parent_post_id,
+					'post_title' => preg_replace('/\.[^.]+$/', '', $filename),
+					'post_content' => '',
+					'post_status' => 'inherit'
+				);
+				$attachment_id = wp_insert_attachment( $attachment, $upload_file['file'], $parent_post_id );
+				if (!is_wp_error($attachment_id)) {
+					require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+					$attachment_data = wp_generate_attachment_metadata( $attachment_id, $upload_file['file'] );
+					wp_update_attachment_metadata( $attachment_id,  $attachment_data );
+				}
+			}
+			
+		    array_push($image_ids, $attachment_id);
 		}
 		return json_encode($image_ids, JSON_HEX_QUOT);
 	}

@@ -47,7 +47,7 @@ add_filter ('the_content', 'insertData');
 		if ( is_singular( 'voertuig' ) &&  $post->ID != 2343 &&  $post->ID != 2339 &&  $post->ID != 2363) {
 			$contentn.= "<div class=\"my-gallery\" itemscope itemtype=\"http://schema.org/ImageGallery\">";
 				foreach(json_decode(get_post_meta(get_the_ID(), 'img_gallery', true)) as $image){
-					$data = get_attachment_meta_data_sem($image);
+					$data = wp_get_attachment_metadata($image);
 					$contentn.=  "<figure itemprop=\"associatedMedia\" itemscope itemtype=\"http://schema.org/ImageObject\">
         <a href=\"". wp_get_attachment_url( $image )."\" itemprop=\"contentUrl\" data-size=\"{$data['width']}x{$data['height']}\">
             <img src=\"".wp_get_attachment_image_src( $image, 'medium' )[0]."\" itemprop=\"thumbnail\" alt=\"Florijnmobilteit\" />
