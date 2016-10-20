@@ -7,8 +7,8 @@
 					'brandstof' => 'Brandstof:',
 					'verkoopprijs_particulier' => 'Vraagprijs:'
 	);
-	include('filters.php')
 	?>
+	<div id="filter-new"></div>
 	<div class="magneet--vwe-archive"><?php
 	if ( have_posts() ) {
 		while ( have_posts() ) {
@@ -17,6 +17,11 @@
 		} 
 	} 
 ?>
+	</div>
+	<div id="filter-old">
+		<?php
+		include('filters.php')	
+		?>
 	</div>
 <?php
 	get_footer();
