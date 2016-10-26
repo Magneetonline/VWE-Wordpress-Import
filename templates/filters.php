@@ -1,7 +1,7 @@
 <div id="filters" class="button-group">
 		<button class="button is-checked" data-filter="*">Geen filtering</button>
 		<ul class="column">
-			<li class="main-filter"><h5>brandstof</h5>
+			<li class="main-filter"><h5>Brandstof</h5>
 			<ul class="sub-filter">
 				<?php
 					$brandstof = array_unique($brandstof);
