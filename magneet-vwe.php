@@ -2,7 +2,7 @@
 /*
  * Plugin Name: VWE advertentie beheer
  * Plugin URI: http://www.magneetonline.nl
- * Description: Plugin om advertenties van VWE te tonen
+ * Description: Plugin om advertenties van vwe te tonen
  * Version: 2.0
  * Author: Sem Schilder - Magneet Online
  * Author URI: https://sem.design

@@ -2,29 +2,22 @@
 		<button class="button is-checked" data-filter="*">Geen filtering</button>
 		<ul class="column">
 			<li class="main-filter"><h5>Brandstof</h5>
-			<ul class="sub-filter">
-				<?php
-					$brandstof = array_unique($brandstof);
-					foreach ($brandstof as $value){
-						?>
-						<li><button class="button" data-filter=".brandstof-<?php echo $value ?>"><?php echo $value ?></button></li>
-						<?php
-					}
-				?>
-			</ul>
+				<ul class="sub-filter">
+					<li><button class="button" data-filter=".brandstof-B">benzine</button></li>
+					<li><button class="button" data-filter=".brandstof-D">diesel</button></li>
+					<li><button class="button" data-filter=".brandstof-G">LPG</button></li>
+				</ul>
 			</li>
 		</ul>
 		<ul class="column">
 			<li class="main-filter"><h5>Merk</h5>
 			<ul class="sub-filter">
-				<?php
-					$merk = array_unique($merk);
-					foreach ($merk as $value){
-						?>
-						<li><button class="button" data-filter=".merk-<?php echo $value ?>"><?php echo $value ?></button></li>
-						<?php
-					}
-				?>
+				<li><button class="button" data-filter=".merk-Škoda">Skoda</button></li>
+				<li><button class="button" data-filter=".merk-Renault">Renault</button></li>
+				<li><button class="button" data-filter=".merk-Volkswagen">Volkswagen</button></li>
+				<li><button class="button" data-filter=".merk-Ford">Ford</button></li>
+				<li><button class="button" data-filter=".merk-Seat">Seat</button></li>
+				<li><button class="button" data-filter=".merk-Mitsubishi">Mitsubishi</button></li>
 			</ul>
 			</li>
 		</ul>

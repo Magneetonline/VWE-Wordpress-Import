@@ -12,19 +12,14 @@ function occasions_func( $atts ) {
 					'brandstof' => 'Brandstof:',
 					'verkoopprijs_particulier' => 'Vraagprijs:',
 	);
-	$brandstof = array();
-	$merk = array();
 	// The Loop
 	if ( $the_query->have_posts() ) {
-		echo '<div id="filer-new"></div>';
+		include(__DIR__.'/templates/filters.php');
 		echo '<div class="magneet--vwe-archive">';
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
 			include('templates/archive-content.php');
 		}
-		echo '</div>';
-		echo '<div id="filer-old">';
-		include(__DIR__.'/templates/filters.php');
 		echo '</div>';
 		/* Restore original Post Data */
 		wp_reset_postdata();
