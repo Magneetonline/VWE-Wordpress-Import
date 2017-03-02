@@ -1,7 +1,5 @@
 jQuery(document).ready(function(){
 	console.info('ready');
-	var working = jQuery("#filer-old").contents();
-	jQuery("#filer-new").append(working);
     jQuery('.my-gallery').click(function() {
         jQuery(this).addClass('active');
         jQuery(this).siblings().not(this).toggleClass('hide');
@@ -70,4 +68,3 @@ jQuery(document).ready(function(){
   $grid.isotope({ filter: filterValue });
   console.log('filtered');
 });
-
