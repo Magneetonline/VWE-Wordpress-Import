@@ -23,11 +23,13 @@
 				die("1");
 			case "change":
 				$post_id = get_post_id_by_meta_key_and_value("voertuignr_hexon", $xml->voertuignr_hexon, false);
+				magneet_delete_media($post_id);
 				wp_delete_post( $post_id, true );
 				import_item($xml);
 				die("1");
 			case "delete":
 				$post_id = get_post_id_by_meta_key_and_value("voertuignr_hexon", $xml->voertuignr_hexon, false);
+				magneet_delete_media($post_id);
 				wp_delete_post( $post_id, true );
 				die("1");
 		}   
@@ -64,6 +66,15 @@
 		}else{
 			die('nope bestaat al');
 		}
+	}
+	
+	function magneet_delete_media($id){
+		$media = get_post_custom_values('img_gallery', $id);
+		
+		foreach(json_decode($media[0]) as $media){
+			wp_delete_attachment($media, true);
+		}
+		
 	}
 	
 	function Download_Images($xml){
